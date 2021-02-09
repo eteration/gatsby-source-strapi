@@ -51,23 +51,28 @@ const extractImage = async (image, ctx) => {
 };
 
 const extractFields = async (item, ctx) => {
-  if (isImage(item)) {
-    return extractImage(item, ctx);
-  }
+    try {
+      if (isImage(item)) {
+        return extractImage(item, ctx);
+      }
 
-  if (Array.isArray(item)) {
-    for (const element of item) {
-      await extractFields(element, ctx);
-    }
+      if (Array.isArray(item)) {
+        for (const element of item) {
+          await extractFields(element, ctx);
+        }
 
-    return;
-  }
+        return;
+      }
 
-  if (isObject(item)) {
-    for (const key in item) {
-      await extractFields(item[key], ctx);
-    }
+      if (isObject(item)) {
+        for (const key in item) {
+          await extractFields(item[key], ctx);
+        }
 
+        return;
+      }
+    } catch (error) {
+    console.log(error);
     return;
   }
 };
