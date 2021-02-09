@@ -2,12 +2,16 @@
 
 Source plugin for pulling documents into Gatsby from a Strapi API.
 
+## Why did we fork
+
+Some of ur image URLs are not standard so we needed to skip them. This version ignores a media file if it cannot be fetched.
+
 
 > **WARNING**: This is the README for v1.0.0-alpha.0 make sure to install it with @alpha to try it out
 
 ## Install
 
-`npm install --save gatsby-source-strapi@alpha`
+`npm install --save @eteration/gatsby-source-strapi@alpha`
 
 ## How to use
 
